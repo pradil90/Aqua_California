@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+
+<title>Aqua-California Visualization</title>
+ <meta name="description" content="Aqua-California">
+ <meta name="description" content="Aqua-California,california,drought results of california,California water results,California water management">
+    <meta name="author" content="Alice,Pradeep Ivan">
+    <meta name="keywords" content="California,Aqua,Aqua-California,Redis,Drought,Water Resources,Rainfall,Water,Consumption,exhaution,reservoir,Water usage,Industrial usage,temperature,precipitation,domestic usage">
+<head>
+<link rel="icon" type="image/x-icon" href="aqualogotitle.png" /> 
+<!-- <script src="https://code.jquery.com/jquery-1.10.2.js"></script> -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+
+    <style>
+@import url(http://fonts.googleapis.com/css?family=Exo:100,200,400);
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:700,400,300);
+
+body{
+	margin: 0;
+	padding: 0;
+	background: #fff;
+
+	color: #fff;
+	font-family: Arial;
+	font-size: 24px;
+}
+
+.body{
+	position: absolute;
+	top: -20px;
+	left: -20px;
+	right: -40px;
+	bottom: -40px;
+	width: auto;
+	height: auto;
+	background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAnjt3XAasNWn-4-nJ67mAAez9vgazZs1o6hcEj7XeqRV7Vb5jZw);
+	background-size: cover;
+	-webkit-filter: blur(5px);
+	z-index: 0;
+}
+
+.grad{
+	position: absolute;
+	top: -20px;
+	left: -20px;
+	right: -40px;
+	bottom: -40px;
+	width: auto;
+	height: auto;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.65))); /* Chrome,Safari4+ */
+	z-index: 1;
+	opacity: 0.7;
+}
+
+.header{
+	position: absolute;
+	top: calc(30%-50px);
+	/*left: calc(50% - 120px);*/
+	left: calc(40%);
+	z-index: 2;
+}
+
+.header div{
+	/*float: left;*/
+	color: #fff;
+	font-family: 'Exo', sans-serif;
+	font-size: 45px;
+	font-weight: 200;
+}
+
+.header div span{
+	color: #5379fa !important;
+}
+
+.login{
+	position: absolute;
+	top: calc(60%-50px);
+	left: calc(15% - 10px);
+	height: 150px;
+	width: 750px;
+	padding: 10px;
+	z-index: 2;
+
+
+	}
+
+#answer{
+/*	position: absolute;
+	top: calc(70%-50px);
+	left: calc(15% - 10px);*/
+	height: 250px;
+	width: 900px;
+	/*padding: 10px;*/
+	z-index: 2;
+	color: #007A29;
+	/*margin-left: auto;*/
+    /*margin-right: auto;*/
+    /*width: 70%;*/
+    background-color: #F6FFF3;
+    font-family: 'Exo', sans-serif;
+    font-size: 16px;
+
+}
+
+
+
+.login input[type=button]{
+	width: 260px;
+	height: 45px;
+	background: #BFE6D8;
+	border: 1px solid #166916;
+	cursor: pointer;
+	border-radius: 4px;
+	color: #166916;
+	/*color: #a18d6c;*/
+	
+	font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 6px;
+	margin-top: 10px;
+}
+
+
+
+.login input[type=button]:hover{
+	/*opacity: 0.1;*/
+	background-color: transparent;
+	color: #FFFFFF;
+	border: 2px solid #fff;
+}
+
+.login input[type=button]:active{
+	opacity: 0.6;
+}
+
+.login input[type=text]:focus{
+	outline: none;
+	border: 1px solid rgba(255,255,255,0.9);
+}
+
+.login input[type=password]:focus{
+	outline: none;
+	border: 1px solid rgba(255,255,255,0.9);
+}
+
+.login input[type=button]:focus{
+	outline: none;
+}
+
+::-webkit-input-placeholder{
+   color: rgba(255,255,255,0.6);
+}
+
+::-moz-input-placeholder{
+   color: rgba(255,255,255,0.6);
+}
+
+/*table, th, td {
+border: 1px solid black;
+}*/
+</style>
+
+    <script src="prefixfree.min.js"></script>
+
+
+
+<script>
+$(document).ready(function(){
+    // $("button").mousemove(function(){
+        $("#div1").fadeIn(3000);
+        $("#div2").fadeIn(3000);
+        $("#div3").fadeIn(1000);
+    // });
+});
+</script>
+
+<script>
+function aquadata() {
+	
+		
+                var xmlhttp;
+                if (window.XMLHttpRequest)
+                  {// code for IE7+, Firefox, Chrome, Opera, Safari
+                  xmlhttp=new XMLHttpRequest();
+                  }
+                else
+                  {// code for IE6, IE5
+                  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+                  }
+                xmlhttp.onreadystatechange=function()
+                  {
+                  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+                    {
+                    document.getElementById("answer").innerHTML=xmlhttp.responseText;
+                    // alert(xmlhttp.responseText);
+                    }
+                  }
+               
+                xmlhttp.open("GET","http://aqua-california.herokuapp.com/aqua-Service/data?data=Dashboard_data",true);
+                xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+                xmlhttp.send();
+}
+
+function Servicereq() {
+	
+		window.location = "/Servicereq";
+
+	// window.location = "https://aqua-california.herokuapp.com/Dashboard";
+	
+}
+</script>
+
+</head>
+
+<body>
+
+  <div class="body"></div>
+		<div class="grad"></div>
+		<div class="header">
+			<center><div id="div3" style="display:none;">Aqua-<span>California</span></div></center>
+		</div>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+			<div class="login">
+		
+			<table align="center">
+				<tr>
+					<td>
+				<input type="button" id="div1" onclick=""  value="Water Data Set">
+					</td>
+					<td>
+				<input type="button" id="div2" onclick="aquadata()"  value="Source Data Set">
+					</td>
+					<td>
+				<input type="button" id="div1" onclick=""  value="Climate Data Set">
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+				<input type="button" id="div1" onclick=""  value="Aqua-California Data Set">
+					</td>
+					<td>
+				<input type="button" id="div2" onclick=""  value="Data Search">
+					</td>
+					<td>
+				<input type="button" id="div1" onclick=""  value="Location Data">
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+				<input type="button" id="div1" onclick=""  value="Location Water Sources">
+					</td>
+					<td>
+				<input type="button" id="div2" onclick=""  value="REST API Document">
+					</td>
+					<td>
+				<input type="button" id="div1" onclick=""  value="Big Data Architecture">
+					</td>
+				</tr>
+			
+
+				
+				
+				
+				<tr>
+					<td colspan="3">
+					
+					<textarea id="answer">
+
+
+					</textarea>
+					</td>
+				</tr>
+				
+				
+			</table>
+</div>
+			
+		<br>
+		
+	
+
+
+ 
+
+</body>
+
+</html>

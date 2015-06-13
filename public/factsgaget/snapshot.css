@@ -1,0 +1,11 @@
+
+ #snapshot {width:75%};
+ #snapshot .ziptable { width: 100%; border-collapse: collapse; }
+ #snapshot .ziptable td { border-bottom: 2px solid #dddddd; padding-top: .5em; padding-bottom: .5em; }
+ #snapshot .views-field-changed { font: normal normal normal .9em sans-serif; color: #444444; }
+ #snapshot .views-field-title { padding-top: 1em; }
+ #snapshot .notes { margin: 1.5em; font-size: .8em; color: #aaa; }
+ #snapshot .views-field-title { padding-top: 1em; }
+ #snapshot .snapshot-heading { text-align: center; font-weight: bold; font-size: 1.1em; }
+ #snapshot #meter  { text-align:center; }
+ #snapshot #meter img { width: 75%; padding: 1em; }
