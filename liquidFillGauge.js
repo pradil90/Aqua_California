@@ -24,6 +24,12 @@ function liquidFillGaugeDefaultSettings(){
 }
 
 function loadLiquidFillGauge(elementId, value, config) {
+
+
+    //d3.select("#" + elementId).remove();
+
+    $("#" + elementId).html("");
+
     if(config == null) config = liquidFillGaugeDefaultSettings();
 
     var gauge = d3.select("#" + elementId);

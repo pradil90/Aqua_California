@@ -1,0 +1,450 @@
+
+        <!--Start of main program data visulization object-->
+     <!-- Google lib call -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCa4MN_DfPNv6i0Hz1LoDVrEBlqFlMy6gA&callback=initMap"
+        async defer></script>
+
+   
+           <style>
+                #map {
+
+                  padding-top: 80px;
+                  padding-bottom: 40px;
+                  width: 500px;
+                  height: 500px;
+                  border-radius: 1600px;
+                  -moz-border-radius: 1600px;
+                  -khtml-border-radius: 999px;
+                  -webkit-border-radius: 999px;
+                  }
+
+     #test {
+      display: none;
+     }
+
+     #heading {
+
+        padding-top: 60px;
+        font-family: 'Hammersmith One', sans-serif;
+        font-size: 48px;
+
+     }
+             
+
+ .Sub-heading {
+
+        text-align: center;
+        font-family: 'Hammersmith One', sans-serif;
+        font-size: 18px;
+       
+
+     }
+            </style>
+
+
+
+
+
+   <div class="row">
+  
+          <div id="firstside" class="col-xs-6 col-md-4">
+                <!--<svg width="100%" height="800px">
+                    <circle id="circle1" cx="230" cy="50" r="0"></circle>
+                    <circle id="circle2" cx="150" cy="300" r="0"></circle>
+                    <circle id="circle3" cx="230" cy="550" r="0"></circle>
+                </svg>-->
+          </div>
+
+          <div class="col-xs-6 col-md-4"> 
+               
+
+               <center><div id="heading"> Drought Trends </div></center>
+                    <div id="test" style="padding-top: 70px; padding-bottom: 100px;width:100px; padding-left:3px">
+                        <div id="map" onmouseleave="hidecountyname()">
+                        </div>
+                    </div>
+             
+              </div>
+
+        <div id="secondside" class="col-xs-6 col-md-4">
+                <!--<svg height="800px">
+                    <circle id="circle4" cx="10" cy="50" r="0"></circle>
+                    <circle id="circle5" cx="70" cy="300" r="0"></circle>
+                    <circle id="circle6" cx="10" cy="550" r="0"></circle>
+                </svg>-->
+        </div>
+</div>          
+ 
+            <script>
+
+            function hidecountyname(){
+
+                   document.getElementById("heading").innerHTML=" Drought Trends ";
+
+            }
+
+            $(document).ready(function(){
+                 initMap();
+
+            });
+             
+ 
+            $( "#test" ).slideDown( "slow" );
+
+                    var map;
+                    function initMap() {
+                      map = new google.maps.Map(document.getElementById('map'), {
+                        center: {lat: 37.400586, lng: -122.217350},
+                        zoom: 9,
+                        navigationControl: false,
+                        mapTypeControl: false,
+                        scaleControl: false,
+                        draggable: false,
+                        disableDoubleClickZoom: true,
+                        zoomControl: false,
+                        scrollwheel:false
+                      });
+
+
+                      
+
+
+
+                        //Santa Clara county
+                        // Add the circle for this city to the map.
+                        var cityCircle1 = new google.maps.Circle({
+                          strokeColor: '#FF0000',
+                          strokeOpacity: 0.8,
+                          strokeWeight: 2,
+                          fillColor: '#FF0000',
+                          fillOpacity: 0.35,
+                          map: map,
+                          center: {lat: 37.3600, lng: -121.870150},
+                          radius: 9000
+                        });
+
+                         cityCircle1.addListener('mouseover', function() {
+                        document.getElementById("heading").innerHTML="Santa Clara";
+                      });
+
+
+                            //Alameda  county
+
+                         // Add the circle for this city to the map.
+                        var cityCircle2 = new google.maps.Circle({
+                          strokeColor: '#FF0000',
+                          strokeOpacity: 0.8,
+                          strokeWeight: 2,
+                          fillColor: '#FF0000',
+                          fillOpacity: 0.35,
+                          map: map,
+                          center: {lat: 37.625501, lng: -121.954143},
+                          radius: 9000
+                        });
+
+                         cityCircle2.addListener('mouseover', function() {
+                        document.getElementById("heading").innerHTML="Alameda";
+                      });
+
+
+                        //San Francisco County 
+                         // Add the circle for this city to the map.
+                        var cityCircle3 = new google.maps.Circle({
+                          strokeColor: '#FF0000',
+                          strokeOpacity: 0.8,
+                          strokeWeight: 2,
+                          fillColor: '#FF0000',
+                          fillOpacity: 0.35,
+                          map: map,
+                          center: {lat: 37.778534, lng: -122.421634},
+                          radius: 9000
+                        });
+
+                       cityCircle3.addListener('mouseover', function() {
+                         document.getElementById("heading").innerHTML="San Francisco";
+
+                      });
+
+
+                        //San Mateo County 37.562112, -122.336745
+                         var cityCircle4 = new google.maps.Circle({
+                          strokeColor: '#FF0000',
+                          strokeOpacity: 0.8,
+                          strokeWeight: 2,
+                          fillColor: '#FF0000',
+                          fillOpacity: 0.35,
+                          map: map,
+                          center: {lat: 37.562112, lng: -122.336745},
+                          radius: 9000
+                        });
+
+                          cityCircle4.addListener('mouseover', function() {
+                         
+                        document.getElementById("heading").innerHTML="San Mateo";
+                      });
+
+                      //Santa Cruz County 36.971305, -122.063409
+                          var cityCircle5 = new google.maps.Circle({
+                          strokeColor: '#FF0000',
+                          strokeOpacity: 0.8,
+                          strokeWeight: 2,
+                          fillColor: '#FF0000',
+                          fillOpacity: 0.35,
+                          map: map,
+                          center: {lat: 36.971305, lng: -122.063409},
+                          radius: 9000
+                        });
+
+                           cityCircle5.addListener('mouseover', function() {
+                        //alert("Santa Cruz");
+                        document.getElementById("heading").innerHTML="Santa Cruz";
+                      });
+
+                       
+ 
+
+
+                       /* var marker = new google.maps.Marker({
+                        position: {lat: 37.3600, lng: -121.870150},
+                        map: map,
+                        animation: google.maps.Animation.DROP,
+                        title: 'Click to zoom'
+                      });*/
+
+                      map.addListener('center_changed', function() {
+                        // 3 seconds after the center of the map has changed, pan back to the
+                        // marker.
+                        window.setTimeout(function() {
+                          map.panTo(marker.getPosition());
+                        }, 3000);
+                      });
+
+                     
+
+
+                      
+                    }
+
+    </script>
+
+    <!--  
+   
+UI ojects for creating the circles for the UI
+  -->
+
+  <style>
+  circle {
+    cursor: pointer;
+  }
+  </style>
+
+   <script>
+
+
+color = d3.scale.category10();
+   var width = 400,
+    height = 800;
+
+ 
+ 
+var svg = d3.select("#firstside").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+    
+d3.json("/data/Bubble_Map.json", function(json) {
+    /* Define the data for the circles */
+    var elem = svg.selectAll("g myCircleText")
+        .data(json.nodes)
+  
+    /*Create and place the "blocks" containing the circle and the text */  
+    var elemEnter = elem.enter()
+      .append("g")
+      .attr("transform", function(d){return "translate("+d.x+","+d.y+")"})
+ 
+    /*Create the circle for each block */
+    var circle = elemEnter.append("circle")
+      .attr("r", function(d){return d.r} )
+      .style("fill", function(d,i) { return color(d.N); })
+      .style("stroke", "red")
+      .style("stroke-width", "4")
+      .style("opacity", "0.6")
+      .attr("cx", function(d){return d.cx})
+      .attr("cy", function(d){return d.cy})
+      .on("click", function(d){window.open("#/bubble"+d.data, "_self");});
+
+ 
+ 
+ 
+
+    /* Create the text for each block */
+    elemEnter.append("text")
+      .attr("dy", function(d){return d.textboundryx})
+      .attr("dx", function(d){return d.textboundryy})
+      .attr("class", "Sub-heading")
+      .style("text-anchor", "middle")
+      .text(function(d){return d.label})
+})
+
+
+var svg2 = d3.select("#secondside").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+    
+d3.json("/data/Bubble_Map_Second.json", function(json) {
+    /* Define the data for the circles */
+    var elem2 = svg2.selectAll("g myCircleText2")
+        .data(json.nodes)
+  
+    /*Create and place the "blocks" containing the circle and the text */  
+    var elemEnter2 = elem2.enter()
+      .append("g")
+      .attr("transform", function(d){return "translate("+d.x+","+d.y+")"})
+ 
+    /*Create the circle for each block */
+    var circle2 = elemEnter2.append("circle")
+      .attr("r", function(d){return d.r} )
+      .style("fill", function(d,i) { return color(d.N); })
+      .style("stroke", "red")
+      .style("stroke-width", "4")
+      .style("opacity", "0.6") 
+      .attr("class", "bubble")
+      .attr("cx", function(d){return d.cx})
+      .attr("cy", function(d){return d.cy})
+      .on("click", function(d){window.open("#/bubble"+d.data, "_self");});
+ 
+
+    /* Create the text for each block */
+    elemEnter2.append("text")
+      .attr("dy", function(d){return d.textboundryx})
+      .attr("dx", function(d){return d.textboundryy})
+      .attr("class", "Sub-heading")
+      .style("text-anchor", "middle")
+      .text(function(d){return d.label})
+})
+ 
+
+/*resetBubbles = function () {
+      color = d3.scale.category10();
+
+    for(var i=0;i<6;i++){
+      var circle1 = d3.select("#circle1");
+      circle1.on("click", function() { window.open("#bubble1", "_self"); });
+      x=100;
+      y=100;
+      var circle=circle1.transition().duration(950);
+      circle.style("fill", function(d,i) { return color(1); });
+      circle.style("stroke", "red");
+      circle.style("stroke-width", "4");
+      circle.style("opacity", "0.6");
+      circle.attr("r", 100);
+      circle.attr("transform", "translate(" + x + "," + y + ")");
+
+
+      var circle1 = d3.select("#circle2");
+      circle1.on("click", function() { window.open("#bubble2", "_self"); });
+      x=100;
+      y=100;
+      var circle=circle1.transition().duration(950);
+      circle.style("fill", function(d,i) { return color(2); });
+      circle.style("stroke", "red");
+      circle.style("stroke-width", "4");
+      circle.style("opacity", "0.6");
+      circle.attr("r", 100);
+      circle.attr("transform", "translate(" + x + "," + y + ")");
+
+         var circle1 = d3.select("#circle3");
+      circle1.on("click", function() { window.open("#bubble3", "_self"); });
+      x=100;
+      y=100;
+      var circle=circle1.transition().duration(950);
+      circle.style("fill", function(d,i) { return color(i); });
+      circle.style("stroke", "red");
+      circle.style("stroke-width", "4");
+      circle.style("opacity", "0.6");
+      circle.attr("r", 100);
+      circle.attr("transform", "translate(" + x + "," + y + ")");
+
+
+         var circle1 = d3.select("#circle4");
+      circle1.on("click", function() { window.open("#bubble4", "_self"); });
+      x=100;
+      y=100;
+      var circle=circle1.transition().duration(950);
+      circle.style("fill", function(d,i) { return color(3); });
+      circle.style("stroke", "red");
+      circle.style("stroke-width", "4");
+      circle.style("opacity", "0.6");
+      circle.attr("r", 100);
+      circle.attr("transform", "translate(" + x + "," + y + ")");
+
+         var circle1 = d3.select("#circle5");
+      circle1.on("click", function() { window.open("#bubble5", "_self"); });
+      x=100;
+      y=100;
+      var circle=circle1.transition().duration(950);
+      circle.style("fill", function(d,i) { return color(4); });
+      circle.style("stroke", "red");
+      circle.style("stroke-width", "4");
+      circle.style("opacity", "0.6");
+      circle.attr("r", 100);
+      circle.attr("transform", "translate(" + x + "," + y + ")");
+
+
+         var circle1 = d3.select("#circle6");
+      circle1.on("click", function() { window.open("#bubble6", "_self"); });
+      x=100;
+      y=100;
+      var circle=circle1.transition().duration(950);
+      circle.style("fill", function(d,i) { return color(5); });
+      circle.style("stroke", "red");
+      circle.style("stroke-width", "4");
+      circle.style("opacity", "0.6");
+      circle.attr("r", 100);
+      circle.attr("transform", "translate(" + x + "," + y + ")");
+      
+    }
+}*/
+
+  </script>
+
+
+
+                  <hr><br>
+             <style type="text/css">
+                .container{
+                        text-align: center;
+                }
+             </style>
+
+             <div class="warper container-fluid">
+             <div class="container">
+                          <h2>Aqua-Visualization</h2>
+                          
+                          <ul class="pagination">
+                            <li><a href="/Dashboard">1</a></li>
+                        
+                             <li><a href="Waterflow">2</a></li>
+                            <li><a href="/DroughtMonitor">3</a></li>
+                            
+                            <li><a href="/resvoir">4</a></li>
+                            <li class="active"><a href="/WaterManagement">5</a></li>
+                            <li><a href="/facts">6</a></li>
+                            <li><a href="/Settings">7</a></li>
+                          </ul>
+                
+
+                </div> <!--end of container-->
+            
+            
+            
+        </div><!--end of warper container fluid-->
+        <!-- Warper Ends Here (working area) -->
+        
+ </div>      
+   
+        
+    
+   
+    <!-- Content Block Ends Here (right box)-->
+    
+     </div> 

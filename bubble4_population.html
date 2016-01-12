@@ -1,0 +1,131 @@
+
+<style>
+ 
+#BackBtn{
+    color: #999;
+       position: absolute;
+    font-size: 14px;
+    cursor: pointer;
+    float: right;
+    padding: 10px 18px;
+    border-top: solid 1px #CCC;
+    border-bottom: solid 1px #CCC;
+    border-left: solid 1px #CCC;
+    background: #333;
+    margin: 0 0;
+    z-index: 100;
+    right: 100px;
+}
+
+</style>
+ 
+
+<div id="BackBtn" class="buttons">Back</div>
+
+<script>
+$("#BackBtn").click(function(){
+  window.location.href = "/MapGraph";
+
+});
+ 
+</script>
+
+<style>
+  #heading {
+
+        padding-top: 30px;
+        font-family: 'Hammersmith One', sans-serif;
+        font-size: 48px;
+
+     }
+
+</style>
+
+<center><div id="heading"> Population Growth Trend </div></center>
+
+
+
+    <script src="assets/js/globalize/globalize.min.js"></script>
+        <script src="assets/js/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="assets/js/plugins/DevExpressChartJS/dx.chartjs.js"></script>  
+<div id="chartContainer" style="height:500px; max-width:1200px; margin: 0 auto"></div>
+<div id="chartContainer2" style="height:500px; max-width:1200px; margin: 0 auto"></div>
+<script>
+
+ var dataSource = [
+
+  { state: 'San Francisco', year1985: 737300, year1990: 723960, year1995: 751500, year2000: 776730, year2005: 777660, year2010: 805235 },
+    { state: 'San Mateo', year1985: 614040, year1990: 649620, year1995: 689700, year2000: 707160, year2005: 699610, year2010: 718451 },
+    { state: 'Santa Cruz', year1985: 213700, year1990: 229730, year1995: 241500, year2000: 255600, year2005: 249666, year2010: 262382 },
+     
+];
+ 
+$(function () {
+    $("#chartContainer").dxChart({
+        dataSource: dataSource,
+        commonSeriesSettings: {
+            argumentField: 'state',
+            type: 'bar',
+            label: {
+                visible: true,
+                format: "",
+                precision: 2
+            }
+        },
+        series: [
+            { valueField: 'year1985', name: '1985' },
+            { valueField: 'year1990', name: '1990' },
+            { valueField: 'year1995', name: '1995' },
+            { valueField: 'year2000', name: '2000' },
+            { valueField: 'year2005', name: '2005' },
+            { valueField: 'year2010', name: '2010' }
+        ],
+        title: {
+            text: ''
+        },
+        legend: {
+            verticalAlignment: 'bottom',
+            horizontalAlignment: 'center'
+        }
+    });
+});
+
+
+var dataSource2 = [
+     
+    { state: 'Santa Clara', year1985: 1397970, year1990: 1497580, year1995: 1603300, year2000: 1682590, year2005: 1699052, year2010: 1781642 },
+    { state: 'Alamada', year1985: 1195160, year1990: 1279180, year1995: 1385270, year2000: 1443740, year2005: 1448905, year2010: 1510271 },
+    { state: 'California', year1985: 2880000, year1990: 2980000, year1995: 3170000, year2000: 3399000, year2005: 3583000, year2010: 3700000 },
+];
+ 
+$(function () {
+    $("#chartContainer2").dxChart({
+        dataSource: dataSource2,
+        commonSeriesSettings: {
+            argumentField: 'state',
+            type: 'bar',
+            label: {
+                visible: true,
+                format: "",
+                precision: 2
+            }
+        },
+        series: [
+            { valueField: 'year1985', name: '1985' },
+            { valueField: 'year1990', name: '1990' },
+            { valueField: 'year1995', name: '1995' },
+            { valueField: 'year2000', name: '2000' },
+            { valueField: 'year2005', name: '2005' },
+            { valueField: 'year2010', name: '2010' }
+        ],
+        title: {
+            text: ' '
+        },
+        legend: {
+            verticalAlignment: 'bottom',
+            horizontalAlignment: 'center'
+        }
+    });
+});
+
+</script>

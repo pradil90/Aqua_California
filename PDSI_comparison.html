@@ -1,0 +1,353 @@
+ 
+
+<!DOCTYPE html>
+<head>
+    <meta HTTP-EQUIV="X-UA-COMPATIBLE" CONTENT="IE=EmulateIE9">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta property="og:image" content="http://www.brightpointinc.com/interactive/images/Budget_202px.png">
+
+    <title>Aqua-California Drought Chart</title>
+    <!--<link type="text/css" rel="stylesheet" href="/drought_flow/styles/style.css">
+ 
+    
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+        <script type="text/javascript" src="http://beneposto.pl/jqueryrotate/js/jQueryRotateCompressed.js"></script>-->
+
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="../assets/css/bootstrap/bootstrap.css" /> 
+    
+    <!-- Fonts  -->
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,500,600,700,300' rel='stylesheet' type='text/css'>
+    
+    <!-- Base Styling  -->
+    <link rel="stylesheet" href="../assets/css/app/app.v1.css" />
+
+
+    <link type="text/css" rel="stylesheet" href="http://www.dreamtemplate.com/dreamcodes/pricingtables/css/tsc_pricingtables.css" />
+<!-- DC Pricing Tables JS -->
+<script type="text/javascript" src="http://www.dreamtemplate.com/dreamcodes/pricingtables/js/tsc_pricingtables.js"></script>
+    
+
+</head>
+
+
+<style>
+
+aside {
+  z-index: 9999;
+ overflow-y: scroll;
+ cursor: pointer;
+}
+
+
+</style>
+
+<div id="menu" style="display: none;">
+        <aside class="left-panel">
+            
+            <div class="user text-center">
+                  <img src="aqualogo.png" class="img-circle" alt="...">
+                  <h4 class="user-name">Aqua California</h4>
+                  
+                  <div class="dropdown user-login">
+                  <button class="btn btn-xs dropdown-toggle btn-rounded" type="button" data-toggle="dropdown" aria-expanded="true">
+                    <i class="fa fa-circle status-icon available"></i> Language <i class="fa fa-angle-down"></i>
+                  </button>
+                  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                    <li role="presentation"><a role="menuitem" href="#" ng-click="click()"><i class="fa fa-circle status-icon busy"></i> English </a></li>
+                    <li role="presentation"><a role="menuitem" href="#" ng-click="click1()"><i class="fa fa-circle status-icon invisibled"></i> French  </a></li>
+                    <li role="presentation"><a role="menuitem" href="#" ng-click="click2()"><i class="fa fa-circle status-icon invisibled"></i> Chinese </a></li>
+                    <li role="presentation"><a role="menuitem" href="#"><i class="fa fa-circle status-icon signout"></i> Sign out</a></li>
+                  </ul>
+                  </div>     
+            </div>
+            
+          
+            <nav class="navigation">
+                <ul class="list-unstyled">
+
+                    <li class="active"><a href="/Drought_flow/"><i class="fa fa-bookmark-o"></i><span class="nav-label">Drought Tree</span></a></li>
+
+                    <li class="has-submenu"><a href="/MapGraph#"><i class="fa fa-comment-o"></i> <span class="nav-label">Spatial Clustering</span></a></li>
+
+                   
+
+                    <li class="has-submenu"><a href="/SpiderGraph"><i class="fa fa-comment-o"></i> <span class="nav-label">Drought Radar </span></a></li>
+
+                    
+
+                    <li class="has-submenu"><a href="/Waterflow"><i class="fa fa-comment-o"></i> <span class="nav-label">Water Exhaustion</span></a> </li>
+
+                     <li class="has-submenu"><a href="/ComparisonTable"><i class="fa fa-star-o"></i> <span class="nav-label">Comparative Study</span></a></li>
+
+                    <li class="has-submenu"><a href="/Dashboard"><i class="fa fa-bookmark-o"></i><span class="nav-label"> Domain Dashboard </span></a></li>
+
+                    <!--<li class="has-submenu"><a href="/DroughtMonitor"><i class="fa fa-flag-o"></i> <span class="nav-label">California PDSI</span></a>
+                        
+                    </li>
+                    <li class="has-submenu"><a href="/resvoir"><i class="fa fa-file-text-o"></i> <span class="nav-label">Reservoir Levels</span></a>
+                       
+                    </li>
+
+                     
+
+                    <li class="has-submenu"><a href="/WaterManagement"><i class="fa fa-file-text-o"></i> <span class="nav-label">Water Management</span></a>
+                       
+                    </li>
+                  <li class="has-submenu"><a href="#"><i class="fa fa-file-text-o"></i> <span class="nav-label">{{store.products.side6}}</span></a> -->
+                      
+                    </li>
+                    <li class="has-submenu"><a href="/facts"><i class="fa fa-star-o"></i> <span class="nav-label">Facts and Information</span></a>
+                        
+                    </li>
+                    <!-- <li class="has-submenu"><a href="#"><i class="fa fa-star-o"></i> <span class="nav-label">{{store.products.side8}}</span></a>
+                        
+                    </li> -->
+                    <li class="has-submenu"><a href="/Settings"><i class="fa fa-star-o"></i> <span class="nav-label">System Status</span></a>
+                        
+                    </li>
+
+                    <li class="has-submenu"><a href="/data_source"><i class="fa fa-star-o"></i> <span class="nav-label">Data Source</span></a></li>
+                </ul>
+            </nav>
+       
+    </aside>
+</div>
+    <!-- Aside Ends-->
+
+
+
+
+
+
+
+   <header class="top-head container-fluid">
+            <button type="button" class="navbar-toggle pull-left">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+            <form role="search" class="navbar-left app-search pull-left hidden-xs">
+              <input type="text" placeholder="Enter Keywords" class="form-control form-control-circle">
+            </form>
+            
+            <nav class=" navbar-default hidden-xs" role="navigation">
+                <ul class="nav navbar-nav">
+                <li><a href="/">Home</a></li>
+                <li><a style="cursor: pointer;" id="BrowseBtn">Browse Drought-Watch</a></li>
+
+                <li class="dropdown">
+                  <a data-toggle="dropdown" class="dropdown-toggle" href="#">About Us<span class="caret"></span></a>
+                  <ul role="menu" class="dropdown-menu">
+                    <li><a href="#">Management</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Service Request</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Registration</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#">Contact Us</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+            
+           
+        </header>
+
+
+<script>
+
+$( "#BrowseBtn" ).click(function() {
+   //$("#menu").show("slow");
+   $("#menu").animate({left:200, opacity:"show"}, 1500);
+
+});
+
+$( "#menu" ).mouseleave(function() {
+   $("#menu").hide("slow");
+ 
+});
+
+</script>
+
+
+
+ <style>
+  #heading {
+
+        padding-top: 30px;
+        font-family: 'Hammersmith One', sans-serif;
+        font-size: 35px;
+        color: black;
+
+     }
+
+</style>
+
+<center><div id="heading"> Palmer Drought Severity Index(PDSI) Vs Drought Radar Index(DRI) </div></center>
+
+ <script type="text/javascript"
+          src="https://www.google.com/jsapi?autoload={
+            'modules':[{
+              'name':'visualization',
+              'version':'1',
+              'packages':['corechart']
+            }]
+          }"></script>
+
+    <script type="text/javascript">
+      google.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Year', 'PDSI', 'DRI'],
+          ['2005',  3.19,      19.63],
+          ['2010',  2.31,      16.90],
+         
+          ['2015',  -5.91,      6.205]
+        ]);
+
+        var options = {
+          title: '',
+          curveType: 'function',
+          legend: { position: 'bottom' }
+        };
+
+        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
+<center><div id="curve_chart" style="width: 900px; height: 500px"></div></center>
+ 
+<style>
+
+#table {
+
+    padding-left: 200px;
+    padding-top: 80px;
+}
+
+ .tsc_pricingtable02 li.pricing_header4 {
+    height:60px;
+    font-size: 20px;
+    font-weight:bold;
+    line-height:50px;
+    border-bottom:1px solid #cccccc;
+    color:#333;
+    background-color:#eee;
+    
+}
+
+</style>
+
+<center>
+<div id="table">
+<div class="tsc_pricingtable02 pricing_five">
+    <ul class="pricing_column_first">
+      <li class="pricing_header1"></li>
+      <li class="pricing_header2"><span>Attributes</span></li>
+      <li class="odd"> <span>Spatial Classification</span></li>
+      <li class="even"> <span>Periodic Trends</span></li>
+      <li class="odd"> <span>Evapotranspiration</span></li>
+       <li class="even"> <span>Soil Recharge</span></li>
+      <li class="odd"> <span>Run off</span></li>
+      <li class="even"> <span>Moisture loss</span></li>
+      <li class="odd"> <span>Precipitation</span></li>
+      <li class="even"> <span>Water Usage</span></li>
+      <li class="odd"><span>Avg Temperature</span></li>
+      <li class="even"> <span>Population</span> </li>
+      <li class="odd"><span>Reservoir Levels</span></li>
+      <li class="even"><span>Vegetative Cover</span></li>
+      
+      
+      
+    </ul>
+    <div class="pricing_hover_area">
+      <ul class="pricing_column green">
+        <li class="pricing_header1">DRI</li>
+        <li class="pricing_header4">Drought Radar Index</li>
+        <li class="odd"><span class="pricing_yes"></span></li>
+        <li class="even"><span class="pricing_yes"></span></li>
+        <li class="odd"><span class="pricing_yes"></span></li>
+        <li class="even"><span class="pricing_yes"></span></li>
+        <li class="odd"><span class="pricing_yes"></span></li>
+        <li class="even"><span class="pricing_yes"></span></li>
+        <li class="odd"><span class="pricing_yes"></span></li>
+        <li class="even"><span class="pricing_yes"></span></li>
+        <li class="odd"><span class="pricing_yes"></span></li>
+        <li class="even"><span class="pricing_yes"></span></li>
+        <li class="odd"><span class="pricing_yes"></span></li>
+        <li class="even"><span class="pricing_yes"></span></li>
+        
+  
+        
+      </ul>
+      <ul class="pricing_column red">
+        <li class="pricing_header1">PDSI</li>
+        <li class="pricing_header4">Palmer Drought Severity Index</li>
+        <li class="odd"><span class="pricing_no"></span></li>
+        <li class="even"><span class="pricing_no"></span></li>
+        <li class="odd"><span class="pricing_yes"></span></li>
+        <li class="even"><span class="pricing_yes"></span></li>
+        <li class="odd"><span class="pricing_yes"></span></li>
+        <li class="even"><span class="pricing_yes"></span></li>
+         <li class="odd"><span class="pricing_yes"></span></li>
+        <li class="even"><span class="pricing_no"></span></li>
+        <li class="odd"><span class="pricing_no"></span></li>
+        <li class="even"><span class="pricing_no"></span></li>
+        <li class="odd"><span class="pricing_no"></span></li>
+        <li class="even"><span class="pricing_no"></span></li>
+        
+    
+        
+
+      </ul>
+      
+      <ul class="pricing_column blue">
+        <li class="pricing_header1">SPI</li>
+        <li class="pricing_header4">Standard Precipitation Index</li>
+        <li class="odd"><span class="pricing_no"></span></li>
+        <li class="even"><span class="pricing_yes"></span></li>
+        <li class="odd"><span class="pricing_no"></span></li>
+        <li class="even"><span class="pricing_no"></span></li>
+        <li class="odd"><span class="pricing_no"></span></li>
+        <li class="even"><span class="pricing_no"></span></li>
+         <li class="odd"><span class="pricing_yes"></span></li>
+        <li class="even"><span class="pricing_no"></span></li>
+        <li class="odd"><span class="pricing_no"></span></li>
+        <li class="even"><span class="pricing_no"></span></li>
+        <li class="odd"><span class="pricing_no"></span></li>
+        <li class="even"><span class="pricing_no"></span></li>
+        
+ 
+        
+      </ul>
+    </div>
+  </div>
+
+
+
+<!-- DC Pricing Tables:2 End -->
+<div class="tsc_clear"></div> <!-- line break/clear line -->
+
+</div>
+</center>
+ 
+  <pre>
+
+
+
+
+  </pre>
+  
+ 
+</body>
+
+</html>

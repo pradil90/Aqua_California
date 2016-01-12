@@ -37,6 +37,94 @@ app.get('/', function(request, response) {
         response.send(script);
 });
 
+
+
+
+app.get('/Drought_flow', function(request, response) {
+  script = fs.readFileSync("drought_flow.html", "utf8");
+        response.send(script);
+});
+
+
+//REST API for Spider graph UI.
+
+app.get('/MapGraph', function(request, response) {
+  script = fs.readFileSync("Aqua_template.html", "utf8");
+        response.send(script);
+});
+
+app.get('/MapGraph1', function(request, response) {
+  script = fs.readFileSync("map_graph.html", "utf8");
+        response.send(script);
+});
+
+
+//preciptation data service and page service
+
+app.get('/preciptation_graph', function(request, response) {
+  script = fs.readFileSync("bubble1_preciptation_graph.html", "utf8");
+ 
+  // response.writeHead(200, {'Content-Type': 'text/css'});
+        response.send(script);
+});
+
+app.get('/data.tsv', function(request, response) {
+  script = fs.readFileSync("preciptation_data.tsv", "utf8");
+ 
+  // response.writeHead(200, {'Content-Type': 'text/css'});
+        response.send(script);
+});
+
+
+app.get('/water_usage', function(request, response) {
+  script = fs.readFileSync("bubble2_water_usage.html", "utf8");
+        response.send(script);
+});
+
+app.get('/temperature', function(request, response) {
+  script = fs.readFileSync("bubble3_temperature.html", "utf8");
+        response.send(script);
+});
+
+app.get('/population_growth', function(request, response) {
+  script = fs.readFileSync("bubble4_population.html", "utf8");
+        response.send(script);
+});
+
+app.get('/reservoirLevels', function(request, response) {
+  script = fs.readFileSync("bubble5_reservoir.html", "utf8");
+        response.send(script);
+});
+
+
+app.get('/PDSI', function(request, response) {
+  script = fs.readFileSync("PDSI_redirect.html", "utf8");
+        response.send(script);
+});
+
+
+app.get('/PDSIpage', function(request, response) {
+  script = fs.readFileSync("bubble6_PDSI.html", "utf8");
+        response.send(script);
+});
+
+
+
+
+//REST API for Spider graph UI.
+
+app.get('/data_source', function(request, response) {
+  script = fs.readFileSync("data_source.html", "utf8");
+        response.send(script);
+});
+
+//REST API for Map graph UI for counties and the details.
+
+app.get('/SpiderGraph', function(request, response) {
+  script = fs.readFileSync("spider_graph.html", "utf8");
+        response.send(script);
+});
+
 app.get('/Dashboard', function(request, response) {
   script = fs.readFileSync("Dashboard.html", "utf8");
         response.send(script);
@@ -58,6 +146,12 @@ app.get('/WaterManagement', function(request, response) {
   script = fs.readFileSync("Water_Management.html", "utf8");
         response.send(script);
 });
+
+
+
+
+
+
 
 app.get('/DroughtMonitor', function(request, response) {
   script = fs.readFileSync("Drought_Monitor.html", "utf8");
@@ -96,13 +190,12 @@ app.get('/registration', function(request, response) {
         response.send(script);
 });
 
-
-
-
-app.get('/test', function(request, response) {
-  script = fs.readFileSync("tester.html", "utf8");
+ app.get('/test', function(request, response) {
+  script = fs.readFileSync("drought_flow.html", "utf8");
         response.send(script);
 });
+
+
 
 app.get('/factsloader', function(request, response) {
   script = fs.readFileSync("factspage.html", "utf8");
@@ -149,6 +242,23 @@ app.get('/style.css', function(request, response) {
         response.send(script1);
 });
 
+ 
+
+app.get('/ComparisonTable', function(request, response) {
+  script = fs.readFileSync("PDSI_comparison.html", "utf8");
+        response.send(script);  
+});
+
+app.get('/network', function (req, res) {
+  res.set('Content-Type', 'text/plain');
+ 
+
+  res.send("Ip address:" + req.ip + "    " + "hostname address:" + req.hostname + "     " + "Protocol for connection"+ req.protocol + "      ");
+     
+});
+ 
+
+
 
 app.post("/JSONrediscache/insert", function (req, res) {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -180,7 +290,7 @@ var post_json = req.query.JSONobject;
       // var result2 = req.body.JSONkey;
       var result2 = "Dashboard_data";
       console.log(result2);
-      console.log(post_json);
+        console.log(post_json);
       
       // var form1=[];
       // var form1=JSON.parse(result);

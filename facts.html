@@ -73,6 +73,7 @@
     <!-- Preloader -->  
     <div ng-controller="dashboardController1 as store">   
 
+         <div id="menu" style="display: none;">
         <aside class="left-panel">
             
             <div class="user text-center">
@@ -92,45 +93,76 @@
                   </div>     
             </div>
             
-         
+         <style>
+
+aside {
+  z-index: 9999;
+ overflow-y: scroll;
+ cursor: pointer;
+}
+
+
+</style>
             
-           <nav class="navigation">
+             <nav class="navigation">
                 <ul class="list-unstyled">
-                    <li class="has-submenu"><a href="/Dashboard"><i class="fa fa-bookmark-o"></i><span class="nav-label">{{store.products.side1}}</span></a></li>
-                    <li class="has-submenu"><a href="/Waterflow"><i class="fa fa-comment-o"></i> <span class="nav-label">{{store.products.side2}}</span></a>
- 
+
+                    <li class="active"><a href="/Drought_flow/"><i class="fa fa-bookmark-o"></i><span class="nav-label">Drought Tree</span></a></li>
+
+                    <li class="has-submenu"><a href="/MapGraph#"><i class="fa fa-comment-o"></i> <span class="nav-label">Spatial Clustering</span></a></li>
+
+                   
+
+                    <li class="has-submenu"><a href="/SpiderGraph"><i class="fa fa-comment-o"></i> <span class="nav-label">Drought Radar </span></a></li>
+
+                    
+
+                    <li class="has-submenu"><a href="/Waterflow"><i class="fa fa-comment-o"></i> <span class="nav-label">Water Exhaustion</span></a> </li>
+
+                     <li class="has-submenu"><a href="/ComparisonTable"><i class="fa fa-star-o"></i> <span class="nav-label">Comparative Study</span></a></li>
+
+                    <li class="has-submenu"><a href="/Dashboard"><i class="fa fa-bookmark-o"></i><span class="nav-label"> Domain Dashboard </span></a></li>
+
+                    <!--<li class="has-submenu"><a href="/DroughtMonitor"><i class="fa fa-flag-o"></i> <span class="nav-label">California PDSI</span></a>
                         
                     </li>
-                    <li class="has-submenu"><a href="/DroughtMonitor"><i class="fa fa-flag-o"></i> <span class="nav-label">{{store.products.side3}}</span></a>
-                        
-                    </li>
-                    <li class="has-submenu"><a href="/resvoir"><i class="fa fa-file-text-o"></i> <span class="nav-label">{{store.products.side4}}</span></a>
+                    <li class="has-submenu"><a href="/resvoir"><i class="fa fa-file-text-o"></i> <span class="nav-label">Reservoir Levels</span></a>
                        
                     </li>
-                    <li class="has-submenu"><a href="/WaterManagement"><i class="fa fa-file-text-o"></i> <span class="nav-label">{{store.products.side5}}</span></a>
+
+                     
+
+                    <li class="has-submenu"><a href="/WaterManagement"><i class="fa fa-file-text-o"></i> <span class="nav-label">Water Management</span></a>
                        
                     </li>
-                    <!-- <li class="has-submenu"><a href="#"><i class="fa fa-file-text-o"></i> <span class="nav-label">{{store.products.side6}}</span></a> -->
+                  <li class="has-submenu"><a href="#"><i class="fa fa-file-text-o"></i> <span class="nav-label">{{store.products.side6}}</span></a> -->
                       
                     </li>
-                    <li class="active"><a href="/facts"><i class="fa fa-star-o"></i> <span class="nav-label">{{store.products.side7}}</span></a>
+                    <li class="has-submenu"><a href="/facts"><i class="fa fa-star-o"></i> <span class="nav-label">Facts and Information</span></a>
                         
                     </li>
                     <!-- <li class="has-submenu"><a href="#"><i class="fa fa-star-o"></i> <span class="nav-label">{{store.products.side8}}</span></a>
                         
                     </li> -->
-                    <li class="has-submenu"><a href="/Settings"><i class="fa fa-star-o"></i> <span class="nav-label">{{store.products.side9}}</span></a>
+                    <li class="has-submenu"><a href="/Settings"><i class="fa fa-star-o"></i> <span class="nav-label">System Status</span></a>
                         
                     </li>
+
+                    <li class="has-submenu"><a href="/data_source"><i class="fa fa-star-o"></i> <span class="nav-label">Data Source</span></a></li>
                 </ul>
             </nav>
        
     </aside>
+</div>
     <!-- Aside Ends-->
-    
-    <section class="content">
-        
-        <header class="top-head container-fluid">
+
+
+
+
+
+
+
+   <header class="top-head container-fluid">
             <button type="button" class="navbar-toggle pull-left">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
@@ -139,23 +171,24 @@
             </button>
             
             <form role="search" class="navbar-left app-search pull-left hidden-xs">
-              <input type="text" placeholder="{{store.products.side10}}" class="form-control form-control-circle">
+              <input type="text" placeholder="Enter Keywords" class="form-control form-control-circle">
             </form>
             
             <nav class=" navbar-default hidden-xs" role="navigation">
                 <ul class="nav navbar-nav">
-                <li><a href="http://aqua-california.herokuapp.com/">{{store.products.side11}}</a></li>
+              <li><a href="/">Home</a></li>
+                <li><a style="cursor: pointer;" id="BrowseBtn">Browse Drought-Watch</a></li>
 
                 <li class="dropdown">
-                  <a data-toggle="dropdown" class="dropdown-toggle" href="#">{{store.products.side12}}<span class="caret"></span></a>
+                  <a data-toggle="dropdown" class="dropdown-toggle" href="#">About Us<span class="caret"></span></a>
                   <ul role="menu" class="dropdown-menu">
-                    <li><a href="#">{{store.products.side13}}</a></li>
-                    <li><a href="#">{{store.products.side14}}</a></li>
-                    <li><a href="#">{{store.products.side15}}</a></li>
+                    <li><a href="#">Management</a></li>
+                    <li><a href="#">Pricing</a></li>
+                    <li><a href="#">Service Request</a></li>
                     <li class="divider"></li>
-                    <li><a href="#">{{store.products.side16}}</a></li>
+                    <li><a href="#">Registration</a></li>
                     <li class="divider"></li>
-                    <li><a href="#">{{store.products.side17}}</a></li>
+                    <li><a href="#">Contact Us</a></li>
                   </ul>
                 </li>
               </ul>
@@ -163,6 +196,24 @@
             
            
         </header>
+
+
+<script>
+
+$( "#BrowseBtn" ).click(function() {
+   //$("#menu").show("slow");
+   $("#menu").animate({left:200, opacity:"show"}, 1500);
+
+});
+
+$( "#menu" ).mouseleave(function() {
+   $("#menu").hide("slow");
+ 
+});
+
+</script>
+
+ 
 
 
 

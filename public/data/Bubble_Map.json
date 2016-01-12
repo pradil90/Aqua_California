@@ -1,0 +1,5 @@
+{"nodes":[
+  {"N":1, "x":310, "y":140,"cx":10,"cy":10, "r":70, "textboundryx":9 , "textboundryy":7, "label":"Preciptation", "data":"1"}, 
+  {"N":2, "x":210, "y":390,"cx":10,"cy":10,"r":70, "textboundryx":9 , "textboundryy":7, "label":"Water Usage", "data":"2"}, 
+  {"N":3, "x":310, "y":650,"cx":10,"cy":10,"r":70, "textboundryx":9 , "textboundryy":7, "label":"Avg Temp", "data":"3"}
+]}
